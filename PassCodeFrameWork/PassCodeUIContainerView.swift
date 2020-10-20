@@ -10,6 +10,7 @@ import UIKit
 
 class PassCodeUIContainerView: UIStackView {
     
+    //this is for chocie of textfield count
     enum LengthOfPassCode
     {
         case six
@@ -21,12 +22,6 @@ class PassCodeUIContainerView: UIStackView {
     
     var textFieldsCollection: [PassCodeTextField] = []
     
-    var showsWarningColor = false
-    
-    //Colors
-    let inactiveFieldBorderColor = UIColor(white: 1, alpha: 0.3)
-    let textBackgroundColor = UIColor(white: 1, alpha: 0.5)
-    let activeFieldBorderColor = UIColor.white
     var remainingStrStack: [String] = []
     
     required init(coder: NSCoder) {
@@ -39,6 +34,8 @@ class PassCodeUIContainerView: UIStackView {
         addPassCodeFields(length: 4)
     }
     
+    
+// init with the length of password not exceeding 6 with keybord type
     init(withLength:LengthOfPassCode,keyPadType: UIKeyboardType){
         super.init(frame: .zero)
         
@@ -111,7 +108,7 @@ class PassCodeUIContainerView: UIStackView {
         
     }
     
-    
+    // this method is for getting the password form passwordView
     final func getPassWord() -> String {
         var OTP = ""
         for textField in textFieldsCollection{

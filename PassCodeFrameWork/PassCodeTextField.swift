@@ -13,29 +13,18 @@ class PassCodeTextField: UITextField {
   weak var previousTextField: PassCodeTextField?
   weak var nextTextField: PassCodeTextField?
     
-    let seperator = UIView()
-
+  // This override method is for making the previous texflied active and makes current textfield empty
   override public func deleteBackward(){
     text = ""
     previousTextField?.becomeFirstResponder()
     self.layer.borderColor = UIColor.red.cgColor
    }
     
-    
-    final func addBorder(){
-        
-        
-        let border = CALayer()
-        border.backgroundColor = UIColor.red.cgColor
-        border.frame = CGRect(x:0, y:self.frame.size.height - 10, width:self.frame.size.width, height:10)
-        self.layer.addSublayer(border)
-        
-    }
-    
 }
 
 extension UIView {
     
+    // this method is for makeing the view to shaking animation.
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
