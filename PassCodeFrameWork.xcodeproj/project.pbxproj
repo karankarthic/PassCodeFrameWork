@@ -15,6 +15,7 @@
 		9EB300ED253967AD00067134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EB300EB253967AD00067134 /* LaunchScreen.storyboard */; };
 		9EB300F525396A8100067134 /* PassCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB300F425396A8100067134 /* PassCodeTextField.swift */; };
 		9EB300F725396B5900067134 /* PassCodeUIContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB300F625396B5900067134 /* PassCodeUIContainerView.swift */; };
+		9EB300FB254019B900067134 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB300FA254019B900067134 /* Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9EB300EE253967AD00067134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EB300F425396A8100067134 /* PassCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeTextField.swift; sourceTree = "<group>"; };
 		9EB300F625396B5900067134 /* PassCodeUIContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeUIContainerView.swift; sourceTree = "<group>"; };
+		9EB300FA254019B900067134 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				9EB300E2253967AC00067134 /* SceneDelegate.swift */,
 				9EB300E4253967AC00067134 /* ViewController.swift */,
 				9EB300F425396A8100067134 /* PassCodeTextField.swift */,
+				9EB300FA254019B900067134 /* Extentions.swift */,
 				9EB300F625396B5900067134 /* PassCodeUIContainerView.swift */,
 				9EB300E6253967AC00067134 /* Main.storyboard */,
 				9EB300E9253967AD00067134 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			files = (
 				9EB300F725396B5900067134 /* PassCodeUIContainerView.swift in Sources */,
 				9EB300E5253967AC00067134 /* ViewController.swift in Sources */,
+				9EB300FB254019B900067134 /* Extentions.swift in Sources */,
 				9EB300F525396A8100067134 /* PassCodeTextField.swift in Sources */,
 				9EB300E1253967AC00067134 /* AppDelegate.swift in Sources */,
 				9EB300E3253967AC00067134 /* SceneDelegate.swift in Sources */,

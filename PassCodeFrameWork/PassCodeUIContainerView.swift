@@ -80,18 +80,29 @@ class PassCodeUIContainerView: UIStackView {
     }
     
     private final func setupTextField(_ textField: PassCodeTextField){
+        
+        let size:CGFloat
+        
+        if isIPad{
+            size = 60
+        }else{
+            size = 40
+        }
+        
+        
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         self.addArrangedSubview(textField)
+        
         textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         textField.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        textField.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        textField.widthAnchor.constraint(equalToConstant: size).isActive = true
         textField.textAlignment = .center
         textField.adjustsFontSizeToFitWidth = false
-        textField.font = UIFont(name: "Kefa", size: 40)
+        textField.font = UIFont(name: "Kefa", size: size)
         textField.layer.cornerRadius = 5
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderColor = UIColor(red: 1/255, green: 7/255, blue: 44/255, alpha: 1).cgColor
         textField.keyboardType = self.keyPadType
         textField.autocorrectionType = .yes
         textField.textContentType = .oneTimeCode
@@ -117,7 +128,7 @@ class PassCodeUIContainerView: UIStackView {
         return OTP
     }
 
- 
+    // this method is for autofill password text
     private final func autoFillTextField(with string: String) {
         remainingStrStack = string.reversed().compactMap{String($0)}
         for textField in textFieldsCollection {
@@ -129,6 +140,22 @@ class PassCodeUIContainerView: UIStackView {
         }
         remainingStrStack = []
     }
+    
+    // if validation fails makes shaking animation and it make textfields empty
+    final func validationFails(){
+        self.shake()
+        
+        for textField in textFieldsCollection {
+//            DispatchQueue.main.async {
+                textField.deleteBackward()
+//            }
+            
+        }
+        
+        textFieldsCollection[0].becomeFirstResponder()
+        
+    }
+    
 }
 
 extension PassCodeUIContainerView : UITextFieldDelegate{
@@ -138,7 +165,7 @@ extension PassCodeUIContainerView : UITextFieldDelegate{
         if textField.text != ""{
             textField.layer.borderColor = UIColor.green.cgColor
         }else{
-            textField.layer.borderColor = UIColor.red.cgColor
+            textField.layer.borderColor = UIColor(red: 1/255, green: 7/255, blue: 44/255, alpha: 1).cgColor
         }
         
     }
