@@ -54,7 +54,6 @@ class ViewController: UIViewController {
                                          
                                          validateButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                                          
-//                                         validateButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,constant: 300),
             ])
             
         }else{
@@ -75,16 +74,16 @@ class ViewController: UIViewController {
         
         
         NSLayoutConstraint.activate([backImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-                                     backImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                                     backImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                                     backImageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                                     backImageView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
                                      
                                      validateButton.topAnchor.constraint(equalTo: backImageView.bottomAnchor,constant: 150),
-//                                     validateButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -100)
-        
+
                                         ])
     
         self.orentationChanges()
     }
+
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -93,23 +92,29 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.orentationChanges()
-    }
-    
     private final func orentationChanges() {
         if isIPad{
-            if UIDevice.current.orientation.isLandscape {
+            if isLandscape {
                 print("Landscape")
                 backImgViewHeightConstrint.isActive  = false
                 backImgViewHeightConstrint = backImageView.heightAnchor.constraint(equalToConstant: 650)
                 backImgViewHeightConstrint.isActive  = true
-            }
-            
-            if UIDevice.current.orientation.isPortrait {
+            }else{
                 print("Portrait")
                 backImgViewHeightConstrint.isActive  = false
                 backImgViewHeightConstrint = backImageView.heightAnchor.constraint(equalTo: self.view.widthAnchor,constant: -200)
+                backImgViewHeightConstrint.isActive  = true
+            }
+        }else{
+            if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+                print(isLandscape)
+                backImgViewHeightConstrint.isActive  = false
+                backImgViewHeightConstrint = backImageView.heightAnchor.constraint(equalToConstant: 170)
+                backImgViewHeightConstrint.isActive  = true
+            }else{
+                print(isLandscape)
+                backImgViewHeightConstrint.isActive  = false
+                backImgViewHeightConstrint = backImageView.heightAnchor.constraint(equalTo: self.view.widthAnchor)
                 backImgViewHeightConstrint.isActive  = true
             }
         }

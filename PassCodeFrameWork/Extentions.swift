@@ -30,3 +30,11 @@ var isIPad : Bool
 {
     return UIDevice.current.userInterfaceIdiom == .pad
 }
+
+var isLandscape: Bool{
+    if #available(iOS 13.0, *) {
+        return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation.isLandscape ?? false
+    } else {
+        return UIApplication.shared.statusBarOrientation.isLandscape
+    }
+}
